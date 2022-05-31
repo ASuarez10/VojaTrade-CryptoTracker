@@ -27,7 +27,7 @@ const Banner = () => {
     const classes = useStyles();
 
   return (
-    <div className={classes.banner}>
+    <div >
         <Container className={classes.bannerContent}>
             <div className={classes.tagline}>
                 <Typography
@@ -36,7 +36,7 @@ const Banner = () => {
                       fontWeight: "bold",
                       marginBottom: 15,
                       fontFamily: "Montserrat",
-                      color:"white"
+                      color:"black"
                   }}
                 >
                     VojaTrade
