@@ -10,6 +10,7 @@ const useStyles = makeStyles(()=> ({
         fontFamily: "Montserrat",
         fontWeight: "bold",
         cursor: "pointer",
+        textAlign: "left"
     }
 }))
 
@@ -33,7 +34,7 @@ const Header = () => {
 
   return (
     
-        <AppBar color='primary' position='static'>
+        <AppBar color='primary' position='sticky'>
             <Container>
                 <Toolbar>
                     <Typography 
