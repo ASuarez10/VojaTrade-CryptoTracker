@@ -1,5 +1,5 @@
 
-import { Container, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@material-ui/core'
+import { Container, LinearProgress, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@material-ui/core'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -67,6 +67,9 @@ const CoinsTable = () => {
           onChange={(e)=>setSearch(e.target.value)}
         />
         <TableContainer>
+          {loading ? (
+          <LinearProgress style={{backgroundColor: "gold"}}/>
+          ):(
           <Table>
             <TableHead style={{backgroundColor: "#EEBC1D"}}>
               <TableRow>
@@ -88,7 +91,7 @@ const CoinsTable = () => {
 
             <TableBody>
                     {handleSearch().map((row)=>{
-                      const profit = row.price_percentage_24h > 0;
+                      const profit = row.price_change_percentage_24h >= 0;
 
                       return(
                         <TableRow
@@ -163,6 +166,7 @@ const CoinsTable = () => {
             </TableBody>
 
           </Table>
+          )}
         </TableContainer>
       </Typography>
     </Container>
