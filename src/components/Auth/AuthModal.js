@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       width: 400,
       backgroundColor: theme.palette.background.paper,
-      color: "white",
+      color: "black",
       borderRadius: 10,
     },
     google: {
@@ -105,7 +105,7 @@ const AuthModal = () => {
                 position="static"
                 style={{
                   backgroundColor: "transparent",
-                  color: "white",
+                  color: "black",
                 }}
               >
                 <Tabs
@@ -120,13 +120,7 @@ const AuthModal = () => {
               </AppBar>
               {value === 0 && <Login handleClose={handleClose} />}
               {value === 1 && <Signup handleClose={handleClose} />}
-              <Box className={classes.google}>
-                <span>OR</span>
-                <GoogleButton
-                  style={{ width: "100%", outline: "none" }}
-                  onClick={signInWithGoogle}
-                />
-              </Box>
+              
             </div>
           </Fade>
         </Modal>

@@ -77,7 +77,6 @@ const CryptoContext = ({children}) => {
       watchlist,}}
     >
 
-
         {children}
     </Crypto.Provider>
   )

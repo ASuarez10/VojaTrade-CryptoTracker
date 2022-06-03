@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from '../CryptoContext';
 import AuthModal from './Auth/AuthModal';
+import Logout from './Auth/Logout';
 import UserSidebar from './Auth/UserSidebar';
 
 const useStyles = makeStyles(()=> ({
@@ -59,7 +60,7 @@ const Header = () => {
                         <MenuItem value={"INR"}>INR</MenuItem>
                     </Select>
 
-                    {user ? <UserSidebar /> : <AuthModal />}
+                    {user ? <Logout /> : <AuthModal />}
 
                 </Toolbar>
             </Container>
