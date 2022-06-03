@@ -61,7 +61,7 @@ const CoinInfo = ({coin}) => {
                 />
             ):(<>
             
-            <Line
+            {/*}<Line
                 data={{
                     labels: historicData.map((coin) => {
                         let date = new Date(coin[0]);
@@ -81,7 +81,7 @@ const CoinInfo = ({coin}) => {
                     ]
                 }}
             
-            />
+            /> */}
 
             </>)
         }
