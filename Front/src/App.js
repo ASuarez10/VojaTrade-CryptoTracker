@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header'
 import CoinPage from './Pages/CoinPage';
 import Homepage from './Pages/Homepage';
+import AboutPage from './Pages/AboutPage';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Homepage/>}/>
           <Route path='/coins/:id' element={<CoinPage/>}/>
+          <Route path='/about' element={<AboutPage/>} />
         </Routes>
         
       </div>

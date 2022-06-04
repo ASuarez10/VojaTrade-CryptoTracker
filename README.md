@@ -1,4 +1,27 @@
-# Getting Started with Create React App
+#Before you start
+In order to run the serverside of this project you must follow de next stps:
+
+1. Open an IDE, navigate to the folder /server/ and run the following command
+```bash
+npm i
+```
+
+2. After all the packages are installed, while still in the /server/  directory, run the following commands in this order
+```bash
+npx knex migrate:rollback
+```
+ ```bash
+npx knex migrate:latest
+```
+
+3. When all the migrations and seed is completed, you can start the server by running the following command. 
+ ```bash
+npx nodemon server.js
+```
+Once completed you should see the message "Server is running on port 9090" in the terminal.
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

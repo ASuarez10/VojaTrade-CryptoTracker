@@ -62,7 +62,7 @@ const Header = () => {
                             Home
                         </RouterLink>
 
-                        <RouterLink to="/"
+                        <RouterLink to="/about"
                             className={classes.link}
                         >
                             About
