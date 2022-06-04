@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
       
 }));
 
+//This component shows a table about cryptos with the name, symbol, price, change in 24 hours and market capitalization.
 const CoinsTable = () => {
 
     const [coins, setCoins] = useState([])
@@ -26,6 +27,7 @@ const CoinsTable = () => {
 
     const navigate = useNavigate()
 
+    //This function fetch the information about all cryptos in the API.
     const fetchCoins =async () => {
 
         setLoading(true)
@@ -38,10 +40,12 @@ const CoinsTable = () => {
 
     console.log(coins)
 
+    //This function fetch the information every time that currrency changes.
     useEffect(() => {
         fetchCoins()
     }, [currency])
 
+    //This function is a search filter that recieves the name or the symbol of the crypto and return the cryptos filtered.
     const handleSearch=() =>{
       return coins.filter((coin)=> (
         coin.name.toLowerCase().includes(search) || 

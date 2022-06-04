@@ -23,10 +23,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
+//This funtion recieves a number without commas and return it with commas.
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
+//This component is a carousel that shows trending cryptos moving to the left.
 const Carousel = () => {
 
     const [trending, setTrending] = useState([])
@@ -35,6 +37,7 @@ const Carousel = () => {
 
     const {currency, symbol} = CryptoState()
 
+    //This function fetch the trending cryptos info from the API.
     const fetchTrendingCoins =async () => {
         const {data} = await axios.get(TrendingCoins(currency))
         
@@ -43,10 +46,13 @@ const Carousel = () => {
 
     console.log(trending)
 
+    //This function fetch the trending cryptos info every time that currency changes.
     useEffect(() => {
         fetchTrendingCoins()
     }, [currency]);
 
+
+    //This function is to map the cryptos from the API to put them in the carousel.
     const items = trending.map((coin) => {
 
         let profit = coin.price_change_percentage_24h >= 0;

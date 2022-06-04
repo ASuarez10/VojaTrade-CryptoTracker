@@ -65,6 +65,7 @@ const useStyles = makeStyles({
   },
 });
 
+//This component is a button that shows the username, the preference list and a logout button if the user is loged in.
 export default function UserSidebar() {
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -85,6 +86,7 @@ export default function UserSidebar() {
     setState({ ...state, [anchor]: open });
   };
 
+  //This function is to logout the user.
   const logOut = () => {
     signOut(auth);
     setAlert({
@@ -96,6 +98,7 @@ export default function UserSidebar() {
     toggleDrawer();
   };
 
+  //This function is to remove a crypto from the preference list.
   const removeFromWatchlist = async (coin) => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {

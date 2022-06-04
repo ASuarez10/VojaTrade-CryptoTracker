@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+//This component shows a histogram about a single coin in the time. Recieves a coin object that is a crypto.
 const CoinInfo = ({coin}) => {
 
     const classes = useStyles();
@@ -34,6 +35,7 @@ const CoinInfo = ({coin}) => {
 
     const {currency} = CryptoState();
 
+    //This function fetch the data of the crypto in the time.
     const fetchHistoricData = async () => {
         const {data} = await axios.get(HistoricalChart(coin.id, days, currency));
         
@@ -42,6 +44,7 @@ const CoinInfo = ({coin}) => {
 
     console.log("data", historicData)
 
+    //This function fetch the data every time that the currency and/or the amount of days changes.
     useEffect(() => {
 
         fetchHistoricData();

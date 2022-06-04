@@ -19,6 +19,7 @@ const style = {
     borderRadius: '20px',
 };
 
+//This is an about page to show some information about us.
 const AboutPage = ()=>{
     <Banner/>
     

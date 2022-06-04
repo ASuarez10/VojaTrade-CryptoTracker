@@ -9,13 +9,6 @@ import { CryptoState } from '../CryptoContext'
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-//const handleSearch=() =>{
-//  return coins.filter((coin)=> (
-//    coin.name.toLowerCase().includes(search) || 
-//    coin.symbol.toLowerCase().includes(search)
-//  ));
-//};
-
 const useStyles = makeStyles((theme) => ({
 
   container: {
@@ -58,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+  // This is the page that you see when you click on a crypto to see the information and to add to the preferences list.
 const CoinPage = () => {
 
   const {id} = useParams()
@@ -66,6 +60,8 @@ const CoinPage = () => {
 
   const {currency, symbol, user, setAlert, watchlist} = CryptoState()
 
+
+// This const fetch the data about a single coin.
   const fetchCoin =async () => {
     const {data} = await axios.get(SingleCoin(id));
 
@@ -74,6 +70,7 @@ const CoinPage = () => {
 
   const inWatchlist = watchlist.includes(coin?.id);
 
+  // This const ir to add a crypto to the preferences list.
   const addToWatchlist = async () => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
@@ -85,7 +82,7 @@ const CoinPage = () => {
 
       setAlert({
         open: true,
-        message: `${coin.name} Added to the Watchlist !`,
+        message: `${coin.name} Agregada a la lista de preferencias`,
         type: "success",
       });
     } catch (error) {
@@ -97,6 +94,7 @@ const CoinPage = () => {
     }
   };
 
+  // This const ir to remove a crypto from the preferences list.
   const removeFromWatchlist = async () => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
@@ -108,7 +106,7 @@ const CoinPage = () => {
 
       setAlert({
         open: true,
-        message: `${coin.name} Removed from the Watchlist !`,
+        message: `${coin.name} Eliminada de la lista de preferencias.`,
         type: "success",
       });
     } catch (error) {
@@ -122,6 +120,7 @@ const CoinPage = () => {
 
   console.log(coin)
 
+  //This function do the fetch of the coins every time that the page reload.
   useEffect(() => {
     fetchCoin()
   }, [])

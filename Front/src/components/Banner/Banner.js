@@ -23,6 +23,7 @@ const useStyles = makeStyles(()=>({
     },
 }))
 
+//This component shows the name of the project and a phrase.
 const Banner = () => {
     const classes = useStyles();
 

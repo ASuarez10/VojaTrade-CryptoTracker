@@ -5,12 +5,14 @@ import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import axios from "axios";
 
+//This component is a form to log in and recieves a function that closes the modal.
 const Login = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { setAlert } = CryptoState();
 
+  //This function is to submit the info to de database and log in the user.
   const handleSubmit = async () => {
     if (!email || !password) {
       setAlert({

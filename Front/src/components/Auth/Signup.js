@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import axios from "axios";
 
+//This component is a form to sign up and recieves a function that closes the modal.
 const Signup = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +13,7 @@ const Signup = ({ handleClose }) => {
 
   const { setAlert } = CryptoState();
 
+  //This function is to submit the info to de database and register the user.
   const handleSubmit = async () => {
     if (password !== confirmPassword) {
       setAlert({

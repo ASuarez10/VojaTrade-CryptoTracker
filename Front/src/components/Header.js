@@ -24,6 +24,7 @@ const useStyles = makeStyles(()=> ({
     }
 }))
 
+// This component is a navigation bar and is on the top of the screen.
 const Header = () => {
 
     const classes = useStyles()
@@ -32,15 +33,6 @@ const Header = () => {
     const {currency, setCurrency, user } = CryptoState()
 
     console.log(currency)
-
-    const darkTheme = createTheme({
-        palette: {
-            primary: {
-                main: "#fff",
-            },
-            type: "dark",
-        },
-    })
 
   return (
     

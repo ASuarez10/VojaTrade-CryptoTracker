@@ -15,6 +15,7 @@ const useStyles = makeStyles({
     
 });
 
+//This component is a logout button.
 function Logout () {
 
     const classes = useStyles();

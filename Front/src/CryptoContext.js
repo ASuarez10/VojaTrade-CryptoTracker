@@ -7,6 +7,7 @@ import { auth, db } from "./firebase";
 
 const Crypto = createContext()
 
+//This const save all the information about the coin and a user to know about his preferences.
 const CryptoContext = ({children}) => {
 
    const [currency, setCurrency] = useState("USD");
@@ -23,6 +24,7 @@ const CryptoContext = ({children}) => {
   const [loading, setLoading] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
 
+  //This function changes the preferences list each time that user changes.
   useEffect(() => {
     if (user) {
       const coinRef = doc(db, "watchlist", user?.uid);
@@ -31,7 +33,7 @@ const CryptoContext = ({children}) => {
           console.log(coin.data().coins);
           setWatchlist(coin.data().coins);
         } else {
-          console.log("No Items in Watchlist");
+          console.log("No hay nada en la preferencias");
         }
       });
 
@@ -48,6 +50,7 @@ const CryptoContext = ({children}) => {
     });
   }, []);
 
+  // This const fetch the data about coins and saves it into the coins variable.
   const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
@@ -56,8 +59,9 @@ const CryptoContext = ({children}) => {
     setLoading(false);
   };
 
+  // This function sets the symbol of the currency each time currency changes.
    useEffect(() => {
-    if(currency === "EUR") setSymbol("A")
+    if(currency === "EUR") setSymbol("€")
     else if(currency === "USD") setSymbol("$")
 
     fetchCoins();

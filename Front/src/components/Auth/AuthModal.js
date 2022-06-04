@@ -30,47 +30,28 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+//This component is a modal that has forms for the log in and the sign up.
 const AuthModal = () => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
   
     const { setAlert } = CryptoState();
   
+    //This is for the state of the modal when is open.
     const handleOpen = () => {
       setOpen(true);
     };
   
+    //This is for the state of the modal when is close.
     const handleClose = () => {
       setOpen(false);
     };
   
     const [value, setValue] = useState(0);
   
+    //This is for the state of the modal when the user changes between the login and signup.
     const handleChange = (event, newValue) => {
       setValue(newValue);
-    };
-  
-    const googleProvider = new GoogleAuthProvider();
-  
-    const signInWithGoogle = () => {
-      signInWithPopup(auth, googleProvider)
-        .then((res) => {
-          setAlert({
-            open: true,
-            message: `Sign Up Successful. Welcome ${res.user.email}`,
-            type: "success",
-          });
-  
-          handleClose();
-        })
-        .catch((error) => {
-          setAlert({
-            open: true,
-            message: error.message,
-            type: "error",
-          });
-          return;
-        });
     };
   
     return (
