@@ -24,7 +24,7 @@ const Login = ({ handleClose }) => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
       let username = email;
-      const loginBack = axios.post("http://localhost:9090/api/users/login", username, password); 
+      //const loginBack = await axios.post("http://localhost:9090/api/users/login", username, password); 
       setAlert({
         open: true,
         message: `Sign Up Successful. Welcome ${result.user.email}`,

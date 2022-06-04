@@ -25,7 +25,7 @@ const Signup = ({ handleClose }) => {
     try {
       let confirm_password = confirmPassword;
       let username = email;
-      const loginBack = axios.post("http://localhost:9090/api/users/register", username, email, password, confirm_password); 
+      //const loginBack = await axios.post("http://localhost:9090/api/users/register", username, email, password, confirm_password); 
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
