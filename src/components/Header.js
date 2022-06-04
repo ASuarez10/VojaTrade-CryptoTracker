@@ -1,10 +1,11 @@
-import { AppBar, createTheme,  Container, makeStyles, MenuItem, Select, ThemeProvider, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, createTheme,  Container, makeStyles, MenuItem, Select, ThemeProvider, Toolbar, Typography, Link } from '@material-ui/core'
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { CryptoState } from '../CryptoContext';
 import AuthModal from './Auth/AuthModal';
 import Logout from './Auth/Logout';
 import UserSidebar from './Auth/UserSidebar';
+import {Link as RouterLink} from 'react-router-dom'
 
 const useStyles = makeStyles(()=> ({
     title: {
@@ -14,6 +15,12 @@ const useStyles = makeStyles(()=> ({
         fontWeight: "bold",
         cursor: "pointer",
         textAlign: "left"
+    },
+    navigation:{
+        flex: 4,
+    },
+    link:{
+        margin: 20
     }
 }))
 
@@ -47,6 +54,21 @@ const Header = () => {
                     >
                         VojaTrade
                     </Typography>
+
+                    <span className={classes.navigation}>
+                        <RouterLink to="/"
+                            className={classes.link}
+                        >
+                            Home
+                        </RouterLink>
+
+                        <RouterLink to="/"
+                            className={classes.link}
+                        >
+                            About
+                        </RouterLink>
+                    </span>
+                    
 
                     <Select variant='outlined' style={{
                         width: 100,
