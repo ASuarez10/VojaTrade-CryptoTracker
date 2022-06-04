@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   sidebar: {
-    width: "30%",
+    width: "90%",
     [theme.breakpoints.down("md")]: {
       width: "100%"
     },
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 25,
+    marginTop: 75,
     borderRight: "2px solid grey",
   },
 
@@ -39,15 +39,21 @@ const useStyles = makeStyles((theme) => ({
 
   marketData: {
     alignSelf: "start",
-    padding: 25,
+    padding: 250,
     paddingTop: 10,
     width: "100%",
+    
     [theme.breakpoints.down("md")]: {
       display: "flex",
       justifyContent: "space-around"
     },
-
+    
+  },
+  description:{
+    
+    marginTop: "20%",
   }
+
 
 }));
 
@@ -227,9 +233,13 @@ const CoinPage = () => {
 
          </div>
       </div>
+      
+      <div className={classes.description}>
+        <Typography variant="h7" className={classes.description}>
+            {(coin?.description.en.split(". ")[0])}.
+        </Typography>
+      </div>
 
-      {/* chart */}
-      <CoinInfo coin = {coin}/>
     </div>
   )
 }
