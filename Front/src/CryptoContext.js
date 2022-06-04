@@ -57,7 +57,7 @@ const CryptoContext = ({children}) => {
   };
 
    useEffect(() => {
-    if(currency === "INR") setSymbol("₹")
+    if(currency === "EUR") setSymbol("A")
     else if(currency === "USD") setSymbol("$")
 
     fetchCoins();

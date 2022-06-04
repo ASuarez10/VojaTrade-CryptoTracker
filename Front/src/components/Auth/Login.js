@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CryptoState } from "../../CryptoContext";
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import axios from "axios";
 
 const Login = ({ handleClose }) => {
   const [email, setEmail] = useState("");
@@ -22,6 +23,8 @@ const Login = ({ handleClose }) => {
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
+      let username = email;
+      const loginBack = axios.post("http://localhost:9090/api/users/login", username, password); 
       setAlert({
         open: true,
         message: `Sign Up Successful. Welcome ${result.user.email}`,

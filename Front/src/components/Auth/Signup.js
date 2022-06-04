@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CryptoState } from "../../CryptoContext";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import axios from "axios";
 
 const Signup = ({ handleClose }) => {
   const [email, setEmail] = useState("");
@@ -22,6 +23,9 @@ const Signup = ({ handleClose }) => {
     }
 
     try {
+      let confirm_password = confirmPassword;
+      let username = email;
+      const loginBack = axios.post("http://localhost:9090/api/users/register", username, email, password, confirm_password); 
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
