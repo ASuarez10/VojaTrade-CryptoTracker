@@ -79,10 +79,10 @@ const Header = () => {
                     onChange={(e) => setCurrency(e.target.value)}
                     >
                         <MenuItem value={"USD"}>USD</MenuItem>
-                        <MenuItem value={"INR"}>INR</MenuItem>
+                        <MenuItem value={"COP"}>INR</MenuItem>
                     </Select>
 
-                    {user ? <Logout /> : <AuthModal />}
+                    {user ? <UserSidebar /> : <AuthModal />}
 
                 </Toolbar>
             </Container>
